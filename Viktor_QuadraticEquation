@@ -1,0 +1,33 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "math.h"
+
+int main()
+{
+	char line[81];
+	double a, b, c;
+	printf("Type the value of a: ");
+	gets_s(line);
+	a = atof(line);
+	if (a == 0)
+	{
+		printf("Error, a cannot be zero");
+		return 1;
+	}
+	printf("Type the value of b: ");
+	gets_s(line);
+	b = atof(line);
+	printf("Type the value of c: ");
+	gets_s(line);
+	c = atof(line);
+	double d = b * b - 4 * a * c;
+	if (d < 0)
+	{
+		printf("Complex roots, unable to continue");
+		return 1;
+	}
+	double x1 = (-b + sqrt(d)) / 2 * a;
+	double x2 = (-b - sqrt(d)) / 2 * a;
+	printf("The roots are %lg and %lg", x1, x2);
+	return 0;
+}
