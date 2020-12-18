@@ -1,0 +1,495 @@
+//no secure//////////////////////////////////////////////////////////////
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+
+
+void = no return
+
+
+
+//THE ULTIMATE SCANF//////////////////////////////////////////////////////////////
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+
+#include <stdio.h>
+#include <string.h>
+
+
+int main()
+{
+
+	char s[100];
+
+	printf("Want pizza? yes or no\n");
+	scanf("%s", s);
+
+	if (strcmp(s, "yes") == 0)
+	{
+		printf("Get pizza");
+	}
+	else if (strcmp(s, "no") == 0)
+	{
+		printf("get out");
+	}
+	else
+	{
+		printf("What?");
+	}
+	return 0;
+}
+
+
+//THE ULTIMATE SCANF2//////////////////////////////////////////////////////////////
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	printf("What is your name ?: ");
+	char name[100]; // '\0'
+	scanf("%s", name);
+
+	int letter = 0;
+	while (name[letter] != '\0')
+	{
+		letter++;
+	}
+
+	//check name size
+	printf("Size of name: %lu\n", strlen(name));
+
+	//compare input without array
+	if (strcmp(name, "Ben ") == 0 || strcmp(name, "ben ")) // oly prints good if gives extra space
+	{
+		printf("Access \n");
+	}
+	else
+	{
+		printf("No access \n");
+	}
+
+	// copy name to an other variable
+	char copy[100];
+	strcpy(copy, name); // copies from name to copy
+	printf("Copy of name: %s\n", copy);
+
+
+	// add other string to input
+	char lastName[] = { " Matveev" };
+	strcat(copy, lastName); //adds lastname to copy make it one var
+	printf("Full name: %s\n", copy);
+	
+
+	
+	return  0;
+}
+
+
+//2 scanf//////////////////////////////////////////////////////////////
+getchar(); ---- between to fscan !!!!!!!!
+
+
+
+
+
+
+
+//ideal for//////////////////////////////////////////////////////////////
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d, ", i);
+	}
+	
+	
+//user for/////////////////////////
+	int max;
+	scanf_s("%d", &max);
+	
+	for (int i = 0; i <= max; i++)
+	{
+		printf("%d, ", i);
+	}
+
+	
+//nested for////////////////////////
+	for (int i = 1; i <= 10; i++)
+	{
+		for ( int j = i; j >= 1 ; j--)
+		{
+			printf("%d", j);
+		}
+		printf("\n");
+	}
+
+
+
+
+
+
+	
+//while////////////////////////////////////////////////////////////////////
+	int i = 0;
+	while (i <= 10)
+	{
+		printf("%d ,", i);
+		i++;
+	}
+	
+//user while////////////////////////////
+	int input;
+	scanf_s("%d", &input);
+	
+	while (input < 0 || input > 10) //infinite loop over the bool
+	{
+		printf("%d ,", input);
+	}
+	
+	printf("%d", input);
+	
+	
+//user while no infinite/////////////////
+	int input;
+	printf("num bw 0-10: ");
+	scanf_s("%d", &input);
+	
+	while (input < 0 || input > 10) //== do while
+	{
+
+		if (input > 0 || input < 10)
+		{
+			return main();
+		}
+	}
+	printf("%d", input);
+	
+	
+//nested while////////////////////////
+	int i = 0, k;
+	
+	while (i <= 10)
+	{
+		k = i - 1;
+		printf("%d ", i);
+		i++;
+	
+		while (k >= 0)
+		{
+			printf("%d ", k);
+			k--;
+		}
+		printf("\n");
+	}
+
+
+//do while////////////////////////
+	int input;
+	do //ask user data going still true
+	{
+		printf("num 0-10: ");
+		scanf_s("%d", &input);
+		
+	}
+	while (input < 0 || input > 10); // <> and <==> works opposite
+	printf("%d", input);
+
+	return 0;
+	
+
+
+
+
+
+
+	
+//break////////////////////////////////////////////////////////////////////
+	for ( int i = 0; i < 60; i++) //works with all loops
+	{
+		printf("Hello\n");
+		if (i == 6)
+		{
+			break;
+		}
+	}
+
+
+//continue////////////////////////////////////////////////////////////////////
+	int i = 0;
+	while (i < 10)
+	{
+		if (i == 7)
+		{
+			printf("7 is ok  "); // doubles 7 without using others
+			i++; //prevents the infinite loop
+			continue; // infinite 7 is ok after count
+			
+		}
+		printf("%d ", i);
+		i++;
+	}
+
+
+
+
+
+
+
+	
+//array print 1////////////////////////////////////////////////////////////////////
+	int myGrades[] = {5, 4, 3, 5, 4, 1};
+	printf("%d", myGrades[0]);
+
+
+//array print all///////////////////
+	int size = 5;
+	int myGrades[size];
+	myGrades[0] = 1;
+	myGrades[1] = 2;
+	myGrades[2] = 3;
+	myGrades[3] = 4;
+	myGrades[4] = 5;
+
+	for (int i = 0; i <= size ; i++)
+	{
+		printf("%d ", myGrades[i]);
+	}
+
+
+// multidim array///////////////////
+	int const column = 3;
+	int const row = 2;
+	int myGrades[row][column] = {
+		{1, 2, 3},
+		{10, 20, 30}
+	};
+
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			printf("%d ", myGrades[i][j]); //1 2 3 10 20 30 
+		}
+	}
+
+
+//pass array from function////////////////////////////////////////////////////////////////////
+	#include <stdio.h>
+
+	void printArray(int arr[], int size);
+
+	void printArray(int arr[], int size)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			arr[i]++;
+			printf("%d ", arr[i]);
+		}
+	}
+
+
+	int main ()
+	{
+		int pizzaSlices[] = { 1, 2, 3, 4, 5, 6 };
+		printArray(pizzaSlices, 6); //second value prints up to the num of array
+
+		printf("\n");
+		for (int i = 0; i < 6; i++)
+		{
+			printf("%d ", pizzaSlices[i]);
+		}
+		
+		return 0;
+	}
+
+
+
+
+	
+//'\0'////////////////////////////////////////////////////////////////////
+	printf("what food?: ");
+	char food[100]; // 99 + '\0'
+	
+	scanf("%s", food);
+	printf("%s\n", food);
+
+	int count = strlen(food); //char count
+	printf("%d\n", count);
+
+
+
+
+
+
+
+
+
+//fun basics////////////////////////////////////////////////////////////////////
+	int fun(int num)
+	{
+		int add = num + num;
+		return add;
+		//return num * num;
+	}
+
+	int main()
+	{
+		int x = 5;
+		int xFunction = fun(x);
+		printf("%d", xFunction);
+		return  0;
+	}
+
+
+
+
+
+
+
+
+
+//pointers ?////////////////////////////////////////////////////////////////////
+	#include <stdio.h>
+
+	int main ()
+	{
+		int slices = 20;
+		int* p = &slices;
+
+		printf("pizza slices: %d\n", slices);
+		printf("pizza slices (through pointer): %d\n", *p);
+
+		slices = 21;
+
+		printf("pizza slices: %d\n", slices);
+		printf("pizza slices (through pointer): %d\n", *p);
+
+		*p = 25;
+
+		printf("pizza slices: %d\n", slices);
+		printf("pizza slices (through pointer): %d\n", *p);
+
+		slices++; //+1
+		(*p)++;  //+1
+
+		printf("pizza slices: %d\n", slices);
+		printf("pizza slices (through pointer): %d\n", *p);
+		
+		return 0;
+	}
+
+
+
+
+
+
+
+
+//stuct basics////////////////////////////////////////////////////////////////////
+		#include <stdio.h>
+
+	typedef struct rectangle
+	{
+		int length;
+		int width;
+	}RECTANGLE;
+
+	typedef struct position
+	{
+		int x;
+		int y;
+	}POSITION;
+
+	typedef struct buildingPlan
+	{
+		char ownerName[30];
+		rectangle rectangle;
+		position position;
+	}BUILDINGPLAN;
+
+	int main()
+	{
+
+		BUILDINGPLAN myBuilding = { {"Benedek Matveev"}, {5, 10}, {34, 60} };
+		printf("%d, %d, %d, %d, %s", myBuilding.rectangle, myBuilding.position, myBuilding.ownerName);
+
+
+		return 0;
+	}
+
+
+
+
+
+
+
+//THE ULTIMATE CODE////////////////////////////////////////////////////////////////////
+	#ifdef _MSC_VER
+	#define _CRT_SECURE_NO_WARNINGS
+	#endif
+	 
+	 
+	#include <cstring>
+	#include <stdio.h>
+	#include <stdlib.h>
+	 
+	 
+	 
+	//struct == long variable
+	typedef struct user
+	{
+		char name[100]; //character array for name
+		int age; // integer for age
+	 
+	}USER;
+	 
+	 
+	 
+	// function points to the struct, fills it with variables // stores function variables in the struct
+	USER *createUser(const char funName[], const int funAge) // name something, integer something == struct name, struct age
+	{
+	 
+		
+		// create space to the variables which will be stored in the struct //dynamic memory allocation
+		USER* newUser = (USER*) malloc(sizeof(USER)); 
+	 
+		
+		// copies the dynamic funName to the struct name //destination, source
+		strcpy(newUser->name, funName);
+	 
+		
+		// struct age = funAge
+		newUser->age = funAge;
+		return newUser;
+	 
+		
+	} // adds the function to the struct
+	 
+	 
+	 
+	int main()
+	{
+		// adding a user by equals a (new) struct to the function
+		// USER* new = createUser(const char funName[], const int funAge)
+		USER* me = createUser("Benedek Matveev", 24);
+		USER* you = createUser("Dominik Kovacs", 23);
+	 
+	 
+		// prints funName->struct name , funAge->struct Age
+		printf("user name: %s, age: %d\n" , me->name, me->age);
+		free(me);
+	 
+		printf("user name: %s, age: %d\n", you->name, you->age);
+		free(you);
+	 
+	 
+		return 0;
+	}
